@@ -1,0 +1,201 @@
+// import Vollkorn and Open Sans
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// set variables
+
+$primary: #00608d;
+
+$family-primary: 'Vollkorn', sans-serif;
+$family-secondary: 'Open Sans', sans-serif;
+
+$button-family: $family-secondary;
+$navbar-height: 4.375rem;
+$navbar-item-color: #1a5470;
+$navbar-item-hover-color: #103d53;
+$body-color: #294a5a;
+
+@import '../node_modules/bulma/bulma.sass';
+
+.navbar-item {
+    a {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #1a5470;
+        &:hover {
+            color: #103d53;
+        }
+    }
+}
+
+.hero-bg {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        linear-gradient(
+            0deg,
+            rgba(119, 189, 224, 0.4),
+            rgba(119, 189, 224, 0.4)
+        ),
+        url('../public/images/hand-on-head.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 0;
+    min-height: 800px;
+    .header {
+        max-width: 900px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $family-primary;
+}
+
+p,
+span,
+li,
+ul,
+button {
+    font-family: $family-secondary;
+}
+
+h1.header-title {
+    color: #dbf2fd;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 150%;
+    letter-spacing: 0.03em;
+    margin-bottom: 36px;
+    span {
+        font-family: $family-primary;
+        &.italic-header {
+            font-style: italic;
+        }
+        &.primary-header {
+            color: #74acc0;
+            font-weight: bold;
+        }
+    }
+}
+
+p.header-subtitle {
+    font-family: Open Sans;
+    color: #dbf2fd;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 150%;
+    letter-spacing: 0.03em;
+    margin-bottom: 40px;
+}
+
+.content-page {
+    padding: 60px;
+    border-top: 1px solid #eff8fa;
+}
+
+.content-split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.markdown-content {
+    max-width: 800px;
+    h1 {
+        color: #00608d;
+        font-size: 26px;
+        line-height: 36px;
+        letter-spacing: 0.03em;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 26px;
+    }
+    p,
+    ul,
+    span {
+        font-size: 16px;
+        line-height: 150%;
+        margin-bottom: 26px;
+    }
+    li {
+        font-size: 16px;
+        line-height: 150%;
+        list-style: square inside;
+    }
+}
+
+.image-grid {
+    margin-left: 80px;
+    margin-top: 60px;
+    max-height: 600px;
+
+    .grid-bg,
+    .grid-img {
+        background-color: #f6fdff;
+        width: 150px;
+        height: 150px;
+    }
+
+    display: grid;
+    grid-template-columns: 150px 150px;
+    .background-1 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 1;
+    }
+    .image-1 {
+        grid-row: 1 / 2;
+        grid-column: 2 / 2;
+    }
+    .background-2 {
+        grid-row: 2 / 2;
+        grid-column: 2 / 2;
+    }
+    .image-2 {
+        grid-row: 2 / 2;
+        grid-column: 1 / 1;
+    }
+    .background-3 {
+        grid-row: 3 / 3;
+        grid-column: 1 / 1;
+    }
+    .image-3 {
+        grid-row: 3 / 3;
+        grid-column: 2 / 2;
+    }
+    .background-4 {
+        grid-row: 4 / 4;
+        grid-column: 2 / 2;
+    }
+    .image-4 {
+        grid-row: 4 / 4;
+        grid-column: 1 / 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1.header-title {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .image-grid {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1215px) {
+    .hero-bg {
+        padding: 40px 0;
+    }
+    .header {
+        padding: 0 20px;
+    }
+    .content-page {
+        padding: 40px 20px;
+        &p {
+            color: red;
+        }
+    }
+}
