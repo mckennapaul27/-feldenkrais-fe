@@ -99,6 +99,9 @@ p.header-subtitle {
     display: flex;
     justify-content: space-between;
 }
+a {
+    color: $primary;
+}
 
 .markdown-content {
     max-width: 800px;
@@ -122,6 +125,16 @@ p.header-subtitle {
         font-size: 16px;
         line-height: 150%;
         list-style: square inside;
+    }
+    li.md-li {
+        font-size: 16px;
+        line-height: 150%;
+        list-style: square inside;
+    }
+    h3.md-h3 {
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-size: 20px;
     }
 }
 

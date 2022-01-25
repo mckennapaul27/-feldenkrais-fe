@@ -11,7 +11,7 @@ export default function Home({ globalData }) {
                 <div className='container'>
                     <div className='header'>
                         <h1 className='header-title'>
-                            Welcome to the Homepage of{' '}
+                            Welcome to the homepage of{' '}
                             <span className='primary-header'>
                                 Feldenkrais Ireland
                             </span>

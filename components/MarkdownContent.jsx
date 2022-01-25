@@ -63,10 +63,28 @@ const NextImage = ({ children, ...props }) => {
     );
 };
 
+const MarkdownLI = ({ children, ...props }) => (
+    <li className='md-li'>{children}</li>
+);
+const MarkdownH3 = ({ children, ...props }) => (
+    <h3 className='md-h3'>{children}</h3>
+);
+
 export default function MarkdownContent({ body }) {
     return (
         <div className={'markdown-content'}>
-            <Markdown>{body}</Markdown>
+            <Markdown
+                options={{
+                    overrides: {
+                        li: MarkdownLI,
+                        h1: MarkdownH3,
+                        h2: MarkdownH3,
+                        h3: MarkdownH3,
+                        h4: MarkdownH3,
+                    },
+                }}>
+                {body}
+            </Markdown>
         </div>
     );
 }
