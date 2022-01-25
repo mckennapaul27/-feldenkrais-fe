@@ -2,6 +2,7 @@ import { getGlobalData, getWorkshops } from '../lib/server-api';
 import Footer from '../components/Footer';
 import Navbar from '../components/NavBar';
 import ImageGrid from '../components/ImageGrid';
+import dayjs from 'dayjs';
 
 export default function Page({ globalData, workshops }) {
     return (
@@ -12,17 +13,25 @@ export default function Page({ globalData, workshops }) {
                     <div className='content-split'>
                         <div className='markdown-content'>
                             <h1 className='page-title'>Workshops</h1>
-                            <div>
-                                {workshops.map((a) => (
-                                    <div key={a.id}>
-                                        <p>{a.attributes.date}</p>
-                                        <p>{a.attributes.workshopName}</p>
-                                        <p>{a.attributes.contactName}</p>
-                                        <p>{a.attributes.contactEmail}</p>
-                                        <p>{a.attributes.contactNumber}</p>
-                                        <p>{a.attributes.facebookLink}</p>
-                                    </div>
-                                ))}
+                            <div className='message is-primary'>
+                                <div className='message-body'>
+                                    {workshops.map((a) => (
+                                        <div key={a.id}>
+                                            <p className='date-time'>
+                                                {dayjs(
+                                                    a.attributes.date
+                                                ).format('DD MMM YYYY')}
+                                            </p>
+                                            <p className='workshop-name'>
+                                                {a.attributes.workshopName}
+                                            </p>
+                                            <p>{a.attributes.contactName}</p>
+                                            <p>{a.attributes.contactEmail}</p>
+                                            <p>{a.attributes.contactNumber}</p>
+                                            <p>{a.attributes.facebookLink}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <ImageGrid />

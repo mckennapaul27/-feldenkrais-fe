@@ -55,7 +55,11 @@ export default function Navbar({ links }) {
                                                 <Link
                                                     href={`/${b.url}`}
                                                     key={b.id}>
-                                                    <a className='navbar-item'>
+                                                    <a
+                                                        className='navbar-item'
+                                                        onClick={() =>
+                                                            toggleActive()
+                                                        }>
                                                         {b.text}
                                                     </a>
                                                 </Link>
@@ -67,7 +71,9 @@ export default function Navbar({ links }) {
                                 return (
                                     <div className='navbar-item' key={a.id}>
                                         <Link href={`/${a.url}`}>
-                                            <a>{a.text}</a>
+                                            <a onClick={() => toggleActive()}>
+                                                {a.text}
+                                            </a>
                                         </Link>
                                     </div>
                                 );

@@ -108,26 +108,29 @@ const ClassBox = ({ classes, day }) => (
     <>
         {classes.length > 0 ? (
             <>
-                <h3>{day}</h3>
+                <h3 className='day'>{day}</h3>
 
                 {classes.map((a) => (
                     <article className='message is-primary' key={a.id}>
                         <div className='message-body'>
-                            <p>
+                            <p className='date-time'>
                                 {a.attributes.startTime.slice(0, 5)} -{' '}
                                 {a.attributes.endTime.slice(0, 5)}
                             </p>
-                            <p>{a.attributes.extraNotes}</p>
+
                             <h3>
                                 {a.attributes.people.data[0].attributes.name}{' '}
-                                <span>
-                                    (
-                                    {
-                                        a.attributes.people.data[0].attributes
-                                            .qualification
-                                    }
-                                    )
-                                </span>
+                                {a.attributes.people.data[0].attributes
+                                    .qualification && (
+                                    <span>
+                                        (
+                                        {
+                                            a.attributes.people.data[0]
+                                                .attributes.qualification
+                                        }
+                                        )
+                                    </span>
+                                )}
                             </h3>
                             <p>
                                 {a.attributes.people.data[0].attributes.address}
@@ -140,6 +143,9 @@ const ClassBox = ({ classes, day }) => (
                             </p>
                             <p>
                                 {a.attributes.people.data[0].attributes.website}
+                            </p>
+                            <p className='notes'>
+                                Notes: {a.attributes.extraNotes}
                             </p>
                         </div>
                     </article>

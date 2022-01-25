@@ -6,6 +6,7 @@ import {
     getLocationPaths,
     getRegionByLocation,
 } from '../../lib/server-api';
+import Link from 'next/link';
 
 export default function DynamicHelp({ globalData, location, practitioners }) {
     return (
@@ -18,21 +19,30 @@ export default function DynamicHelp({ globalData, location, practitioners }) {
                             <h1 className='page-title'>{location}</h1>
                             {practitioners.data.map((a) => (
                                 <article
-                                    // className='message is-primary'
+                                    className='message is-primary'
                                     key={a.id}>
-                                    <div
-                                    // className='message-body'
-                                    >
+                                    <div className='message-body'>
                                         <h3>
                                             {a.attributes.name}{' '}
-                                            <span>
-                                                ({a.attributes.qualification})
-                                            </span>
+                                            {a.attributes.qualification && (
+                                                <span>
+                                                    (
+                                                    {a.attributes.qualification}
+                                                    )
+                                                </span>
+                                            )}
                                         </h3>
                                         <p>{a.attributes.address}</p>
                                         <p>{a.attributes.phone}</p>
                                         <p>{a.attributes.email}</p>
                                         <p>{a.attributes.website}</p>
+                                        <p className='member-link'>
+                                            View{' '}
+                                            <Link
+                                                href={`/member/${a.attributes.slug}`}>
+                                                <a>member profile</a>
+                                            </Link>
+                                        </p>
                                     </div>
                                 </article>
                             ))}

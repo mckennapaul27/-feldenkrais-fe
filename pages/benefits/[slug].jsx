@@ -1,5 +1,11 @@
-import DynamicPage from '../components/DynamicPage';
-import { getGlobalData, getPageBySlug, getPagePaths } from '../lib/server-api';
+import DynamicPage from '../../components/DynamicPage';
+import {
+    getBenefitBySlug,
+    getBenefitPaths,
+    getGlobalData,
+    getPageBySlug,
+    getPagePaths,
+} from '../../lib/server-api';
 
 export default function DynamicHelp({ globalData, title, content }) {
     return (
@@ -14,11 +20,10 @@ export default function DynamicHelp({ globalData, title, content }) {
 }
 
 export async function getStaticPaths({}) {
-    const { data } = await getPagePaths();
+    const { data } = await getBenefitPaths();
     const paths = data.pages.data.map((a) => ({
-        params: { slug: [a.attributes.slug] },
+        params: { slug: a.attributes.slug },
     }));
-
     return {
         paths,
         fallback: false,
@@ -27,7 +32,7 @@ export async function getStaticPaths({}) {
 
 export async function getStaticProps({ params }) {
     const globalData = await getGlobalData();
-    const { data, error } = await getPageBySlug({ slug: params.slug[0] });
+    const { data, error } = await getBenefitBySlug({ slug: params.slug });
     const {
         id,
         attributes: { title, content, slug },
