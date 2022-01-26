@@ -126,6 +126,9 @@ a {
         line-height: 150%;
         list-style: square inside;
     }
+    ul.md-ul {
+        padding-left: 0;
+    }
     li.md-li {
         font-size: 16px;
         line-height: 150%;

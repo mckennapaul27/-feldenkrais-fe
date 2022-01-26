@@ -63,6 +63,9 @@ const NextImage = ({ children, ...props }) => {
     );
 };
 
+const MarkdownUL = ({ children, ...props }) => (
+    <ul className='md-ul'>{children}</ul>
+);
 const MarkdownLI = ({ children, ...props }) => (
     <li className='md-li'>{children}</li>
 );
@@ -76,6 +79,7 @@ export default function MarkdownContent({ body }) {
             <Markdown
                 options={{
                     overrides: {
+                        ul: MarkdownUL,
                         li: MarkdownLI,
                         h1: MarkdownH3,
                         h2: MarkdownH3,
