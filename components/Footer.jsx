@@ -6,7 +6,9 @@ export default function Footer() {
         <footer
             className='footer'
             style={{
-                backgroundColor: '#f6fdff',
+                backgroundColor: '#00608d',
+                opacity: '0.95',
+                color: '#ffffff',
             }}>
             <div className='content has-text-centered'>
                 <p>
