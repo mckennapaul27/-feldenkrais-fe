@@ -54,11 +54,38 @@ export default function Home({ globalData }) {
                                         Feldenkrais Accreditation Boards
                                         (EuroTAB, NATAB).
                                     </p>
+                                </div>
+                                <div>
                                     <Link href={'/feldenkrais-method'}>
-                                        <button className='button is-primary is-large'>
+                                        <button className='button is-primary has-icon'>
+                                            <img
+                                                src='/learn-icon.svg'
+                                                alt='learn'
+                                                className='learn-icon'
+                                            />
                                             Learn more
                                         </button>
                                     </Link>
+                                </div>
+                                <div className='links'>
+                                    <p>
+                                        <span>Popular:</span>
+                                        <span>
+                                            <Link href='/feldenkrais-method'>
+                                                <a>About the method</a>
+                                            </Link>
+                                        </span>
+                                        <span>
+                                            <Link href='/workshops'>
+                                                <a>Workshops</a>
+                                            </Link>
+                                        </span>
+                                        <span>
+                                            <Link href='/practitioners/east'>
+                                                <a>Practitioners</a>
+                                            </Link>
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

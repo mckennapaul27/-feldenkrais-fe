@@ -57,12 +57,35 @@ $body-color: #294a5a;
         .c-section {
             max-width: 50%;
             display: flex;
-            // align-items: center;
+            flex-wrap: wrap;
             justify-content: flex-start;
             flex-wrap: wrap;
             margin-left: 10%;
+            & > div {
+                min-width: 100%;
+            }
         }
     }
+}
+.links {
+    span {
+        margin-right: 12px;
+        a {
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    }
+}
+// button > span.img-split {
+//     vertical-align: middle;
+// }
+.learn-icon {
+    margin-right: 8px;
+    max-height: 16px;
+}
+.button.has-icon {
+    display: flex;
+    align-items: center;
 }
 
 h1,
@@ -109,7 +132,7 @@ p.header-subtitle {
     font-size: 19px;
     line-height: 150%;
     letter-spacing: 0.03em;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
 }
 
 .content-page {
