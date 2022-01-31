@@ -71,6 +71,11 @@ export default function Home({ globalData }) {
                                     <p>
                                         <span>Popular:</span>
                                         <span>
+                                            <Link href='/practitioners/east'>
+                                                <a>Practitioners</a>
+                                            </Link>
+                                        </span>
+                                        <span>
                                             <Link href='/feldenkrais-method'>
                                                 <a>About the method</a>
                                             </Link>
@@ -78,11 +83,6 @@ export default function Home({ globalData }) {
                                         <span>
                                             <Link href='/workshops'>
                                                 <a>Workshops</a>
-                                            </Link>
-                                        </span>
-                                        <span>
-                                            <Link href='/practitioners/east'>
-                                                <a>Practitioners</a>
                                             </Link>
                                         </span>
                                     </p>
