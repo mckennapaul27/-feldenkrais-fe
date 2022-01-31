@@ -12,7 +12,7 @@ export default function Page({ globalData, workshops }) {
                 <div className='container'>
                     <div className='content-split'>
                         <div className='markdown-content'>
-                            <h1 className='page-title'>Workshops</h1>
+                            <h1 className='page-title'>Workshops </h1>
                             <div className='message is-primary'>
                                 <div className='message-body'>
                                     {workshops.map((a) => (
