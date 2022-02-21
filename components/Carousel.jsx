@@ -19,6 +19,7 @@ export default function Carousel() {
         fade: true,
         className: 'this-slider',
     };
+
     return (
         <Slider {...settings}>
             <div>

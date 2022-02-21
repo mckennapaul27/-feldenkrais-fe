@@ -1,10 +1,12 @@
 import Navbar from '../components/NavBar';
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import { getGlobalData } from '../lib/server-api';
 // Import css files
-import Carousel from '../components/Carousel';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
+import Carousel from '../components/Carousel.jsx';
+
 export default function Home({ globalData }) {
     return (
         <>
@@ -26,7 +28,7 @@ export default function Home({ globalData }) {
                 <div className='container wrapper'>
                     <div className='header'>
                         <h1 className='header-title'>
-                            Welcome to the homepage of{' '}
+                            Welcome to{' '}
                             <span className='primary-header'>
                                 Feldenkrais Ireland
                             </span>
@@ -57,7 +59,7 @@ export default function Home({ globalData }) {
                                 </div>
                                 <div>
                                     <Link href={'/feldenkrais-method'}>
-                                        <button className='button is-primary has-icon'>
+                                        <button className='button is-primary is-large has-icon'>
                                             <img
                                                 src='/learn-icon.svg'
                                                 alt='learn'
