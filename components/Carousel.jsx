@@ -1,6 +1,6 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
+import Slider from '@ant-design/react-slick';
 import carousel1 from '../public/images/carousel-1.jpg';
 import Image from 'next/image';
 

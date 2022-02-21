@@ -46,30 +46,58 @@ $body-color: #294a5a;
     }
     .wrapper {
         .c-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 36px;
-        }
-        .slider-container {
-            max-width: 40%;
-        }
-        .c-section {
-            max-width: 50%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            margin-left: 10%;
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(10, 1fr);
+            .slider-container {
+                grid-row: 1 / 2;
+                grid-column-start: 1;
+                grid-column-end: 5;
+            }
+            .c-section {
+                grid-row: 1 / 2;
+                grid-column-start: 5;
+                grid-column-end: 11;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                margin-left: 10%;
 
-            & > div {
-                min-width: 100%;
-                margin-bottom: 40px;
-                &:last-child {
-                    margin-bottom: 0;
+                & > div {
+                    min-width: 100%;
+                    margin-bottom: 40px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
+        // .c-container {
+        //     display: flex;
+        //     flex-wrap: wrap;
+        //     justify-content: space-between;
+        //     margin-bottom: 36px;
+        // }
+        // .slider-container {
+        //     max-width: 40%;
+        // }
+        // .c-section {
+        //     max-width: 50%;
+        //     display: flex;
+        //     flex-wrap: wrap;
+        //     justify-content: flex-start;
+        //     flex-wrap: wrap;
+        //     margin-left: 10%;
+
+        //     & > div {
+        //         min-width: 100%;
+        //         margin-bottom: 40px;
+        //         &:last-child {
+        //             margin-bottom: 0;
+        //         }
+        //     }
+        // }
     }
 }
 .links {
@@ -298,28 +326,53 @@ a {
         display: none;
     }
     .hero-bg {
+        // .wrapper {
+        //     .c-container {
+        //         display: flex;
+        //         flex-wrap: wrap;
+        //         justify-content: space-between;
+        //         margin-bottom: 36px;
+        //     }
+        //     .slider-container {
+        //         min-width: 100%;
+        //     }
+        //     .c-section {
+        //     min-width: 100%;
+        //     display: flex;
+        //     align-items: flex-start;
+        //     justify-content: flex-start;
+        //     flex-wrap: wrap;
+        //     margin-left: 0%;
+        //     margin-top: 36px;
+        //     & > div {
+        //         margin-bottom: 40px;
+        //         &:last-child {
+        //             margin-bottom: 0;
+        //         }
+        //     }
+        // }
+        // }
         .wrapper {
             .c-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-bottom: 36px;
-            }
-            .slider-container {
-                min-width: 100%;
-            }
-            .c-section {
-                min-width: 100%;
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                margin-left: 0%;
-                margin-top: 36px;
-                & > div {
-                    margin-bottom: 40px;
-                    &:last-child {
-                        margin-bottom: 0;
+                display: grid;
+                grid-template-rows: auto;
+                grid-template-columns: auto;
+                .slider-container {
+                    grid-row: 1 / 2;
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+                .c-section {
+                    grid-row: 2 / 3;
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                    margin-left: 0%;
+                    margin-top: 36px;
+                    & > div {
+                        margin-bottom: 40px;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }

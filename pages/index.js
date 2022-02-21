@@ -4,10 +4,13 @@ import { getGlobalData } from '../lib/server-api';
 // Import css files
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
-import Carousel from '../components/Carousel.jsx';
+import Carousel from '../components/EmblaCarousel';
 
 export default function Home({ globalData }) {
+    // const Carousel = dynamic(import('../components/EmblaCarousel'), {
+    //     ssr: false,
+    // });
+
     return (
         <>
             <Navbar links={globalData.data.attributes.navLink} />

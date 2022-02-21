@@ -16,6 +16,8 @@
         "cloudinary-build-url": "^0.2.4",
         "dayjs": "^1.10.7",
         "dotenv": "^10.0.0",
+        "embla-carousel-autoplay": "^6.2.0",
+        "embla-carousel-react": "^6.2.0",
         "graphql": "^16.2.0",
         "markdown-to-jsx": "^7.1.5",
         "next": "12.0.8",
