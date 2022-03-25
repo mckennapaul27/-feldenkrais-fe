@@ -13,10 +13,11 @@ export default function Page({ globalData, workshops }) {
                     <div className='content-split'>
                         <div className='markdown-content'>
                             <h1 className='page-title'>Workshops</h1>
-                            <div className='message is-primary'>
-                                <div className='message-body'>
-                                    {workshops.map((a) => (
-                                        <div key={a.id}>
+
+                            {workshops.map((a) => (
+                                <div className='message is-primary' key={a.id}>
+                                    <div className='message-body'>
+                                        <div>
                                             <p className='date-time'>
                                                 {dayjs(
                                                     a.attributes.date
@@ -30,9 +31,9 @@ export default function Page({ globalData, workshops }) {
                                             <p>{a.attributes.contactNumber}</p>
                                             <p>{a.attributes.facebookLink}</p>
                                         </div>
-                                    ))}
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                         <ImageGrid />
                     </div>
