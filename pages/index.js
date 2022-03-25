@@ -110,4 +110,4 @@ export async function getStaticProps() {
             globalData: globalData.data.global,
         },
     };
-}
+} // this is test
