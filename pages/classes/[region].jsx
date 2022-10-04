@@ -8,6 +8,11 @@ import {
 } from '../../lib/server-api';
 
 export default function DynamicHelp({ globalData, location, classes }) {
+    classes.data.map((a) => {
+        a.attributes.start = Number(a.attributes.startTime.slice(0, 2));
+
+        return a;
+    });
     return (
         <>
             <Navbar links={globalData.data.attributes.navLink} />
@@ -19,52 +24,102 @@ export default function DynamicHelp({ globalData, location, classes }) {
 
                             <ClassBox
                                 day={'Monday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === 'Monday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek === 'Monday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Tuesday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === 'Tuesday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek === 'Tuesday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Wednesday'}
-                                classes={classes.data.filter(
-                                    (a) =>
-                                        a.attributes.dayOfWeek === 'Wednesday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek ===
+                                            'Wednesday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Thursday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === 'Thursday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek ===
+                                            'Thursday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Friday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === ''
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) => a.attributes.dayOfWeek === ''
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Saturday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === 'Saturday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek ===
+                                            'Saturday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
 
                             <ClassBox
                                 day={'Sunday'}
-                                classes={classes.data.filter(
-                                    (a) => a.attributes.dayOfWeek === 'Sunday'
-                                )}
+                                classes={classes.data
+                                    .filter(
+                                        (a) =>
+                                            a.attributes.dayOfWeek === 'Sunday'
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            a.attributes.start -
+                                            b.attributes.start
+                                    )}
                             />
                         </div>
                         <ImageGrid />
@@ -104,55 +159,75 @@ export async function getStaticProps({ params }) {
     };
 }
 
-const ClassBox = ({ classes, day }) => (
-    <>
-        {classes.length > 0 ? (
-            <>
-                <h3 className='day'>{day}</h3>
+const ClassBox = ({ classes, day }) => {
+    // if (day === 'Monday') {
+    //     console.log(classes);
+    // }
+    return (
+        <>
+            {classes.length > 0 ? (
+                <>
+                    <h3 className='day'>{day}</h3>
 
-                {classes.map((a) => (
-                    <article className='message is-primary' key={a.id}>
-                        <div className='message-body'>
-                            <p className='date-time'>
-                                {a.attributes.startTime.slice(0, 5)} -{' '}
-                                {a.attributes.endTime.slice(0, 5)}
-                            </p>
+                    {classes.map((a) => (
+                        <article className='message is-primary' key={a.id}>
+                            <div className='message-body'>
+                                <p className='date-time'>
+                                    {a.attributes.startTime.slice(0, 5)} -{' '}
+                                    {a.attributes.endTime.slice(0, 5)}
+                                </p>
 
-                            <h3>
-                                {a.attributes.people.data[0].attributes.name}{' '}
-                                {a.attributes.people.data[0].attributes
-                                    .qualification && (
-                                    <span>
-                                        (
-                                        {
-                                            a.attributes.people.data[0]
-                                                .attributes.qualification
-                                        }
-                                        )
-                                    </span>
-                                )}
-                            </h3>
-                            <p>
-                                {a.attributes.people.data[0].attributes.address}
-                            </p>
-                            <p>
-                                {a.attributes.people.data[0].attributes.phone}
-                            </p>
-                            <p>
-                                {a.attributes.people.data[0].attributes.email}
-                            </p>
-                            <p>
-                                {a.attributes.people.data[0].attributes.website}
-                            </p>
-                            <p className='notes'>
-                                Notes: {a.attributes.extraNotes}
-                            </p>
-                        </div>
-                    </article>
-                ))}
-            </>
-        ) : (
-            <></>
-        )}
-    </>
-);
+                                <h3>
+                                    {
+                                        a.attributes.people.data[0].attributes
+                                            .name
+                                    }{' '}
+                                    {a.attributes.people.data[0].attributes
+                                        .qualification && (
+                                        <span>
+                                            (
+                                            {
+                                                a.attributes.people.data[0]
+                                                    .attributes.qualification
+                                            }
+                                            )
+                                        </span>
+                                    )}
+                                </h3>
+                                <p>
+                                    {
+                                        a.attributes.people.data[0].attributes
+                                            .address
+                                    }
+                                </p>
+                                <p>
+                                    {
+                                        a.attributes.people.data[0].attributes
+                                            .phone
+                                    }
+                                </p>
+                                <p>
+                                    {
+                                        a.attributes.people.data[0].attributes
+                                            .email
+                                    }
+                                </p>
+                                <p>
+                                    {
+                                        a.attributes.people.data[0].attributes
+                                            .website
+                                    }
+                                </p>
+                                <p className='notes'>
+                                    Notes: {a.attributes.extraNotes}
+                                </p>
+                            </div>
+                        </article>
+                    ))}
+                </>
+            ) : (
+                <></>
+            )}
+        </>
+    );
+};
