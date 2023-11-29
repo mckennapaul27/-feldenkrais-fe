@@ -8,28 +8,31 @@ export default function Page({ globalData, workshops }) {
     return (
         <>
             <Navbar links={globalData.data.attributes.navLink} />
-            <div className='content-page'>
-                <div className='container'>
-                    <div className='content-split'>
-                        <div className='markdown-content'>
-                            <h1 className='page-title'>Workshops</h1>
+            <div className="content-page">
+                <div className="container">
+                    <div className="content-split">
+                        <div className="markdown-content">
+                            <h1 className="page-title">Workshops</h1>
 
                             {workshops.map((a) => (
-                                <div className='message is-primary' key={a.id}>
-                                    <div className='message-body'>
+                                <div className="message is-primary" key={a.id}>
+                                    <div className="message-body">
                                         <div>
-                                            <p className='date-time'>
-                                                {dayjs(
-                                                    a.attributes.date
-                                                ).format('DD MMM YYYY')}
+                                            <p className="date-time">
+                                                <span>
+                                                    {dayjs(
+                                                        a.attributes.date
+                                                    ).format('DD MMM YYYY')}
+                                                </span>
                                             </p>
-                                            <p className='workshop-name'>
+                                            <p className="workshop-name">
                                                 {a.attributes.workshopName}
                                             </p>
                                             <p>{a.attributes.contactName}</p>
                                             <p>{a.attributes.contactEmail}</p>
                                             <p>{a.attributes.contactNumber}</p>
                                             <p>{a.attributes.facebookLink}</p>
+                                            <p>{a.attributes.location}</p>
                                         </div>
                                     </div>
                                 </div>
